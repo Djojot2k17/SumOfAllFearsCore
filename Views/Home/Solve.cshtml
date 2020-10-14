@@ -60,7 +60,12 @@
     foreach (var el in myList)
     {
         <hr>
-        <p class="lead">Input Numbers: @inputs.GetValue(0) @inputs.GetValue(1) @inputs.GetValue(2) @inputs.GetValue(3) @inputs.GetValue(4)</p>
+        <p class="lead">Input Numbers: @inputs.GetValue(0) 
+                                       @inputs.GetValue(1) 
+                                       @inputs.GetValue(2) 
+                                       @inputs.GetValue(3) 
+                                       @inputs.GetValue(4)
+        </p>
         <p class="lead">Target Number: @ViewData["kValue"]</p>
         <p class="lead">The numbers @el.GetValue(1) and @el.GetValue(0) add up to @ViewData["kValue"]</p>
     }
