@@ -1,0 +1,67 @@
+﻿@{
+    ViewData["Title"] = "Solve";
+    var found = (bool)ViewData["Found"];
+    // (type)Object = explicit casting - magic
+    var myList = (List<Array>)ViewData["Result"];
+    var inputs = (Array)ViewData["InputArray"];
+
+}
+
+<form asp-action="Solve">
+    <div class="row">
+        <div class="col">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Give me a number</span>
+                </div>
+                <input type="text"
+                       name="num1"
+                       aria-label="num1"
+                       placeholder="Num 1"
+                       class="form-control" />
+                <input type="text"
+                       name="num2"
+                       aria-label="num2"
+                       placeholder="Num 2"
+                       class="form-control" />
+                <input type="text"
+                       name="num3"
+                       aria-label="num3"
+                       placeholder="Num 3"
+                       class="form-control" />
+                <input type="text"
+                       name="num4"
+                       aria-label="num4"
+                       placeholder="Num 4"
+                       class="form-control" />
+                <input type="text"
+                       name="num5"
+                       aria-label="num5"
+                       placeholder="Num 5"
+                       class="form-control" />
+                <input type="text"
+                       name="kValue"
+                       aria-label="kValue"
+                       placeholder="Target"
+                       class="form-control" />
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary"
+                            type="submit">
+                        Find two numbers that equals "Target"
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+@if (found)
+{
+    foreach (var el in myList)
+    {
+        <hr>
+        <p class="lead">Input Numbers: @inputs.GetValue(0) @inputs.GetValue(1) @inputs.GetValue(2) @inputs.GetValue(3) @inputs.GetValue(4)</p>
+        <p class="lead">Target Number: @ViewData["kValue"]</p>
+        <p class="lead">The numbers @el.GetValue(1) and @el.GetValue(0) add up to @ViewData["kValue"]</p>
+    }
+}
